@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>HTML CSS Template 1</title>
+
+    <link rel="stylesheet" href="all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+body{
+    font-family: sans-serif;
+}
+.clear{
+    clear: both;
+}
+h1,h2,h3,h4,h5,h6{
+    font-family:montserrat , sans-serif
+}
+button{
+    font-family: inherit;
+}
+a{
+    text-decoration: none;
+}
+.section-header{
+    text-align: center;
+    margin-bottom: 10px;
+}
+.section-header .section-title{
+    font-size: 35px;
+    text-transform: capitalize;
+}
+.section-header .line{
+    display: block;
+    height: 4px;
+    width: 60px;
+    margin: 0 auto 70px auto;
+    background-color: #6195ff;
+}
+.pd-y{
+    padding: 120px 0;
+}
+.overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.hover-opacity:hover{
+    opacity: 0.7;
+}
+.hover-opacity{
+    transition: opacity .5s;
+}
+.ltr-effect,
+.tb-effect{
+    position: relative;
+}
+.ltr-effect:after,
+.tb-effect:after{
+    position: absolute;
+    content:'';
+    background-color: #333;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: -1;
+}
+.ltr-effect:after{
+    width: 0;
+    transition: width 0.5s;
+}
+.ltr-effect:hover:after{
+    width: 100%;
+}
+.tb-effect:after{
+    height: 0;
+    transition: height 0.5s;
+}
+
+.tb-effect:hover:after{
+    height:100%;
+}
+*{
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;/*لكي لا يزود حجم البوردر*/
+}
+:root{ /* to make varibles */
+    --maincolor:#6195ff;
+}
+.container{
+    width: 80%;
+    margin: auto;
+}
+.header{
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.header-conent{
+    /* overflow: hidden;to slove float problem */
+}
+.header .logo{
+    width: 36%;
+    float: left;
+}
+.header .logo img{
+    width: 30%;
+    margin-top: 8px;
+}
+.header .nav{
+    width: 64%;
+    float: left;
+    list-style: none;
+    text-align: right;
+}
+.header .nav > li{
+    display: inline-block;
+    text-align: right;
+}
+.header .nav > li > a{
+    color: #fff;
+    display: block;
+    padding: 30px 15px;
+    font-size: 18px;
+}
+.header .nav > li >a::after,
+.header .nav > li >a.active::after{
+    content:'';
+    display: block;
+    background-color:var(--maincolor);
+    height: 3px;
+    transition: width 0.7s;
+    margin-top: 2px;
+}
+.header .nav > li > a::after{
+    width: 0;
+}
+.header .nav > li a.active::after{
+    width: 100%;
+}
+.header .nav > li > a:hover:after{
+    width: 100%;
+}
+.dropdown{
+    position: relative;
+}
+.dropdown-menu{
+    position: absolute;
+    background-color: var(--maincolor);
+    width: 130px;
+    text-align: center;
+    left: -50%;
+    top: 70%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s;
+    border-radius: 20px;
+}
+.dropdown-menu a{
+    padding: 10px;
+    color: #fff;
+    display: block;
+}
+.dropdown:hover .dropdown-menu{
+    opacity: 1;
+    visibility: visible;
+    list-style: none;
+}
+
+        /* Home Section*/
+.home{
+    height: 100vh;
+    background-image: url(images/background/background1.webp);
+    background-size: cover; /* ليغطي كل حجم الصورة*/
+    position: relative;
+    background-attachment:fixed; /* لما تحرك السكرول تتحرك الصورة معك*/
+}
+.home-content{
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    text-align: center;
+    width: 65%;
+}
+.home .title {
+    color: #fff;
+    font-size: 3.5em;
+    text-transform: uppercase;
+}
+.home-desc{
+    margin: 20px 0;
+    color: #fff;
+    letter-spacing: 2px;
+    line-height: 1.5;
+}
+.home .btn{
+    width: 160px;
+    padding:12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor:pointer;
+}
+ .home .btn-start{
+    margin-right: 12px;
+    background-color: #fff;
+}
+.home .btn-learn{
+    background-color: var(--maincolor);
+    color: #fff;
+}
+
+        /* About Section */
+.about{
+
+}
+.about-content{
+    overflow: hidden;
+}
+.about-item{
+    float: left;
+    width: 30%;
+    text-align: center;
+    border: 1px solid #e8e8e8;
+    padding: 50px 20px;
+}
+.about-item:hover .about-item-title{
+    color: #fff;
+}
+.about-item.mg{
+    margin: 0 5%;
+}
+.about-item .icon{
+    color: var(--maincolor);
+    margin-bottom: 20px;
+}
+.about-item-title{
+    text-transform: capitalize;
+    margin-bottom: 20px;
+    transition: color 0.5s;
+}
+.about-item-desc{
+    line-height:1.6;
+    margin-bottom:20px ;
+    color: #8a8a8a;
+}
+.about-item-link{
+    color: var(--maincolor);
+    text-transform: capitalize;
+}
+
+        /* Portfolio Section */
+.portfolio{
+    background: #f0eeee;
+}
+.portfolio-content{
+    overflow: hidden;
+}
+.portfolio-item{
+    width: 30%;
+    float: left;
+    margin-bottom: 30px;
+    position: relative;
+    padding: 20px;
+}
+.portfolio-item .layer-content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    visibility:hidden;
+    transition: opacity 0.5s;
+}
+.portfolio-item:hover .layer-content{
+    opacity: 1;
+    visibility: visible;
+}
+.layer-content .layer-info{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 80%;
+    text-align: center;
+    transform: translate(-50%,-50%);
+}
+.layer-content .category{
+    font-size: 20px;
+    color: var(--maincolor);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 5px;
+    position: relative;
+    top: 10px;
+    transition: font-size, top,opacity 0.5s;
+    transition-delay: 0.1; /*للانتظار ثم التحرك*/
+    opacity: 0;
+}
+.layer-content:hover .category{
+    font-size: 26px;
+}
+.layer-content-title{
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 10px;
+    position: relative;
+    top: 10px;
+    transition: top,opacity 0.5s;
+    transition-delay: 0.3s;
+    opacity: 0;
+}
+.layer-content a{
+    color: #ffffff;
+    position: relative;
+    top: 10px;
+    transition: top,opacity 0.5s;
+    transition-delay: 0.5s;
+    opacity: 0;
+}
+.layer-content a i{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    background: var(--maincolor);
+}
+.portfolio-item:hover .layer-content-title,
+.portfolio-item:hover .layer-content a,
+.portfolio-item:hover .layer-content .category{
+    top: 0;
+    opacity: 1;
+}
+.portfolio-item.mg{
+    margin: 0 4%;
+}
+.portfolio-item img{
+    width: 100%;
+}
+
+    /* Offer Section */
+.offer{
+
+}
+.offer-content{
+    overflow: hidden;
+}
+.offer-item{
+    width: 30%;
+    float: left;
+    margin-bottom: 20px;
+    border: 1px solid #c2bfbf ;
+    padding:30px 15px 30px 70px;
+    position: relative;
+}
+.offer-item.mg{
+    margin: 0 4%;
+}
+.offer-item .icon{
+    position: absolute;
+    left: 15px;
+    top: 30px;
+    color:var(--maincolor);
+}
+.offer-item-title{
+    text-transform: capitalize;
+    margin-bottom: 15px;
+    transition: color 0.5s;
+}
+.offer-item-desc{
+    text-transform: capitalize;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color:#999;
+    letter-spacing: 1px;
+}
+.offer-item:hover .offer-item-title{
+    color: #fff;
+}
+/* Service Section */
+.service{
+    background: #f9f9f9;
+}
+.service-item{
+    width: 50%;
+    float: left;
+}
+.service-item .section-header{
+    text-align: left;
+}
+.service-item .section-header .line{
+    margin: 0 0 50px 0;
+}
+.service-item-desc{
+    color: #999;
+    padding-right: 20px;
+    margin-bottom:20px;
+    font-size:17px;
+    line-height:1.4;
+    letter-spacing:1px;
+}
+.service-list{
+    list-style: none;
+}
+.service-list{
+    margin-bottom:10px ;
+    color: #999;
+}
+.service-list li i{
+    border: 1px solid var(--maincolor);
+    color: var(--maincolor);
+    width: 25px;
+    height: 25px;
+    padding:4px;
+    border-radius: 50%;
+}
+.service-item-img img{
+    width: 100%;
+}
+.service-bollets{
+    list-style: none;
+    text-align: center;
+}
+.service-bollets li{
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    background-color: #e8e8e8;
+    margin: 10px 5px;
+    border-radius: 50%;
+}
+.service-bollets li.active{
+    background: var(--maincolor);
+}
+.service-bollets li:hover{
+    background: var(--maincolor);
+    cursor: pointer;
+}
+ /* Numbers Section */
+
+.numbers{
+    position: relative;
+    background-image: url(images/background/background2.webp);
+    height: 300px;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.numbers-items{
+    overflow: hidden;
+    padding: 100px 0;
+}
+.number-item{
+    width: 25%;
+    float: left;
+    text-align: center;
+}
+.number-item .icon{
+    color: var(--maincolor);
+    margin-bottom: 15px;
+}
+.number-item-title{
+    font-size:20px;
+    color: #fff;
+    font-weight:bold;
+    margin-bottom: 15px;
+}
+.number-item-text{
+    color: #fff;
+}
+
+/* Pricing Section */
+.pricing{
+
+}
+.pricing-plans{
+    overflow: hidden;
+}
+.pricing-item{
+    width: 30%;
+    float: left;
+    padding: 40px 15px;
+    border: #c2bfbf solid 1px;
+    text-align: center;
+}
+.pricing-item.mg{
+    margin: 0 5%;
+}
+.pricing-item-text{
+    text-transform: uppercase;
+    color: #999;
+    font-size: 17px;
+    transition: color .5s;
+    font-weight: bold;
+}
+.pricing-item-permonth{
+    width: 130px;
+    height: 130px;
+    padding: 20px 0;
+    margin: 20px auto;
+    border: var(--maincolor) 2px solid;
+    border-radius: 50%;
+    transition: color .5s;
+}
+.pricing-item-permonth .dollar{
+    font-size: 50px;
+}
+.pricing-item-permonth .month{
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: bold;
+}
+.pricing-list{
+    list-style: none;
+}
+.pricing-list li{
+    color: #999;
+    line-height: 1.8;
+    letter-spacing: 1px;
+    transition: color .5s;
+    font-weight: bold;
+}
+.pricing-item-button{
+    display: block;
+    background: none;
+    color: var(--maincolor);
+    width: 140px;
+    padding: 10px;
+    margin: 15px auto 0 auto;
+    border: 2px solid var(--maincolor);
+    cursor: pointer;
+}
+.pricing-item:hover .pricing-item-permonth{
+    color: #fff;
+}
+.pricing-item:hover .pricing-item-text{
+    color: var(--maincolor);
+}
+.pricing-item:hover .pricing-list li{
+    color: #fff;
+}
+ /* Testimonail Section  */
+.testimonail{
+    position: relative; 
+    background-image: url(images/background/background3.webp);
+    background-size:cover ;
+    background-attachment:fixed;
+    height: 400px;
+}
+.testimonail-content{
+    overflow: hidden;
+    padding: 120px 0;
+}
+.testimonail-item{
+    width: 50%;
+    float: left;
+    color: #fff;
+}
+.testimonail-item .testimonail-toplayer{
+    padding: 10px 2px 40px 100px;
+    position: relative;
+}
+.testimonail-item .testimonail-toplayer img{
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    border-radius: 50%;
+}
+.testimonail-item .testimonail-toplayer h3{
+    margin: 5px 0;
+}
+.testimonail-item .testimonail-toplayer span{
+    color: var(--maincolor);
+    font-weight: bold;
+}
+.testimonail-desc{
+    line-height: 1.5;
+    font-size: 17px;
+    letter-spacing: 1px;
+    width: 88%;
+}
+/*   Team Section  */
+.team{
+
+}
+.team-content{
+    overflow: hidden;
+}
+.team-item{
+    width: 30%;
+    float: left;
+    background: #e8e8e8;
+    padding: 30px 10px;
+    text-align: center;
+}
+.team-item.mg{
+    margin:0 5%;
+}
+.team-item .team-img{
+    margin: 0 15px;
+    position: relative;
+}
+.team-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:rgba(0,0, 0, 0.7);
+    opacity: 0;
+    visibility: hidden;
+}
+.team-overlay a{
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: var(--maincolor);
+    color: #fff;
+    margin-left: auto;
+
+}
+
+.team-item .team-img img{
+    width: 100%;
+}
+.team-item .team-info-title{
+    color: #222;
+    margin: 10px 0;
+    transition: color 0.5s;
+}
+.team-item .team-info-text{
+    font-size: 14px;
+    color: #999;
+    text-transform: uppercase;
+    transition: color 0.5;
+    font-weight: bold;
+}
+.team-item:hover .team-overlay{
+    opacity: 1;
+    visibility: visible;
+}
+.team-item.tb-effect{
+    z-index: 1;
+}
+.team-item:hover .team-info-title{
+    color: #fff;
+} 
+.team-item:hover .team-info-text{
+    color: var(--maincolor);
+}
+
+/* Blog Section */
+.blog{
+    background: #f9f9f9;
+}
+.blog-content{
+    overflow: hidden;
+}
+.blog-item{
+    width: 30%;
+    float: left;
+    background: #ffffff;
+}
+.blog-item.mg{
+    margin: 0 5%;
+}
+.blog-item-img img{
+    width: 100%;
+}
+.blog-info{
+    padding: 20px;
+}
+.blog-list{
+    list-style: none;
+    margin: 10px 0;
+}
+.blog-list li{
+    display: inline-block;
+    margin: 0 5px;
+}
+.blog-list li i{
+    color: var(--maincolor);
+}
+.blog-title{
+    font-weight:bold;
+    margin:10px 0
+}
+.blog-desc{
+    color: #747070;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+.blog-link{
+    color: var(--maincolor);
+}
+
+/* Contact Section */
+
+/* Footer Section */
+.footer{
+    background: #1c1d21;
+    text-align: center;
+    padding: 60px 0;
+    margin-top:100px ;
+}
+.footer-links{
+    list-style: none;
+    margin: 20px 0;
+}
+.footer-links li{
+    display: inline-block;
+}
+.footer-links li a{
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: var(--maincolor);
+    color: #fff;
+    margin: 0 5px;
+    border-radius: 50%;
+}
+.footer-links li a i{
+    line-height: 50px;
+}
+.footer .copyright{
+    color: #747070;
+    font-size: 17px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.contact{
+    background-color: #f9f9f9;
+}
+.contact-content{
+    overflow: hidden;
+}
+.contact-item{
+    width: 32%;
+    float: left;
+    background-color: #fff;
+    margin-top: 20px;
+}
+.contact-item.mg{
+    margin: 20px 10px;
+    
+}
+.contact-info{
+    padding: 20px;
+}
+.contact-item i{
+    color: #6195ff;
+    margin: 10px 0;
+}
+.contact-item .contact-title{
+    margin-bottom: 10px;
+}
+.contact-item .contact-desc{
+    color: #999;
+    font-weight: bold;
+}
+.contact-inputs{
+    padding-top: 10px;
+    width: 100%;
+    height: 300px;
+    background: #f9f9f9;
+    margin: 40px 0;   
+}
+.contact-inp input{
+    width: 50%;
+    margin: 20px auto 10px auto ;
+    display: block;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+.contact-btn{
+    padding: 15px 20px;
+    margin: 20px 0;
+    background: #6195ff;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.contact-btn:hover{}
+
+
+
+
+</style>
+
+<body>
+    <!-- <i class="fa-brands fa-facebook"></i> -->
+<!-- Header -->
+
+    <div class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="images/logo-alt.webp" alt="Logo Image" draggable="'flase"><!-- draggable=  ==(للقدرة على تحريك الصورة) -->
+                </div>
+                <ul class="nav">
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Portolio</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Prices</a></li>
+                    <li><a href="#">Team</a></li>
+                    <li class="dropdown">
+                        <a href="#">Blog</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">blog Post</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <div class="clear"></div>
+            </div><!-- ./header-content -->
+        </div><!--./container-->
+    </div><!-- ./header -->
+
+<!-- Home Section -->
+
+    <div class="home">
+        <div class="overlay">
+        <div class="home-content">
+            <h1 class="title">
+                we are creative acency
+            </h1>
+            <p class="home-desc">Lorem ipsum dolor sit, 
+            amet consectetur adipisicing elit. Quos ut quisquam explicabo
+            sint laboriosam sit quo reprehenderit, recusandae blanditiis nulla. 
+            </p>
+            <button class="btn btn-start hover-opacity">Get Started !</button>
+            <button class="btn btn-learn hover-opacity">Learn More !</button>
+
+        </div>  <!-- ./home-content -->
+    </div> <!-- .overlay -->
+    </div>  <!-- ./home -->
+    <!-- Section Header -->
+
+    <!-- <div class="section-header">
+        <h2 class="section-title">Welcom To Website</h2>
+        <span class="line"></span> -->
+    <!-- </div> -->
+    <!-- About Section -->
+
+    <div class="about pd-y">
+        <div class="section-header">
+            <h2 class="section-title">welcom to wibsite</h2>
+            <span class="line"></span>
+        </div> <!-- ./section-header -->
+
+        <div class="container">
+            <div class="about-content">
+                <div class="about-item ltr-effect">
+                    <i class="icon fa fa-cogs fa-2x"></i>
+                    <h2 class="about-item-title">fully customizible</h2>
+                    <p class="about-item-desc">Lorem ipsum dolor sit am
+                        et consectetur adipisicing elit. Voluptate 
+                        minima recusandae quo beatae optio sunt.
+                    </p>
+                    <a href="#" class="about-item-link">read more</a>
+
+                </div><!-- ./about-item -->
+               
+                    <div class="about-item mg ltr-effect">
+                        <i class="icon fa fa-magic fa-2x"></i>
+                        <h2 class="about-item-title">fully customizible</h2>
+                        <p class="about-item-desc">Lorem ipsum dolor sit am
+                            et consectetur adipisicing elit. Voluptate 
+                            minima recusandae quo beatae optio sunt.
+                        </p>
+                        <a href="#" class="about-item-link">read more</a>
+        
+                    </div><!-- ./about-item -->
+                    
+                        <div class="about-item ltr-effect">
+                            <i class="icon fa fa-mobile fa-2x"></i>
+                            <h2 class="about-item-title">fully customizible</h2>
+                            <p class="about-item-desc">Lorem ipsum dolor sit amet 
+                                consectetur adipisicing elit. Voluptate 
+                                minima recusandae quo beatae optio sunt.
+                            </p>
+                            <a href="#" class="about-item-link">read more</a>
+        
+                    </div><!-- ./about-item -->
+                    <div class="clear"></div>
+            </div> <!-- ./about-content -->
+        </div> <!-- ./container -->
+    </div><!-- ./about -->
+    <!-- Portfolio Section -->
+
+    <div class="portfolio pd-y">
+        <div class="section-header">
+            <h2 class="section-title">featured works</h2>
+            <span class="line"></span>
+        </div>
+
+        <div class="container">
+            <div class="portfolio-content">
+                <div class="portfolio-item">
+                    <img src="images/work/work1.webp" alt="">
+
+                    <div class="layer-content">
+                        <div class="layer-info">
+                            <span class="category"><b>category</b></span>
+                        <h3 class="layer-content-title">Lorem, ipsum dolor.</h3>
+                        <a href="#"><i class="fa fa-edit"></i></a>
+                        <a href="#"><i class="fa fa-search"></i></a>
+                        </div>
+                    </div> <!-- layer content -->
+                </div><!-- ./portfolio-item -->
+                <div class="portfolio-item mg">
+                    <img src="images/work/work2.webp" alt="">
+                    <div class="layer-content">
+                        <div class="layer-info">
+                            <span class="category"><b>category</b></span>
+                        <h3 class="layer-content-title">Lorem, ipsum dolor.</h3>
+                        <a href="#"><i class="fa fa-edit"></i></a>
+                        <a href="#"><i class="fa fa-search"></i></a>
+                        </div>
+                    </div> <!-- layer content -->
+                </div><!-- ./portfolio-item -->
+                <div class="portfolio-item">
+                    <img src="images/work/work3.webp" alt="">
+                    <div class="layer-content">
+                        <div class="layer-info">
+                            <span class="category"><b>category</b></span>
+                        <h3 class="layer-content-title">Lorem, ipsum dolor.</h3>
+                        <a href="#"><i class="fa fa-edit"></i></a>
+                        <a href="#"><i class="fa fa-search"></i></a>
+                        </div>
+                    </div> <!-- layer content -->
+                </div><!-- ./portfolio-item -->
+                <div class="portfolio-item">
+                    <img src="images/work/work4.webp" alt="">
+                    <div class="layer-content">
+                        <div class="layer-info">
+                            <span class="category"><b>category</b></span>
+                        <h3 class="layer-content-title">Lorem, ipsum dolor.</h3>
+                        <a href="#"><i class="fa fa-edit"></i></a>
+                        <a href="#"><i class="fa fa-search"></i></a>
+                        </div>
+                    </div> <!-- layer content -->
+                </div><!-- ./portfolio-item -->
+                <div class="portfolio-item mg">
+                    <img src="images/work/work5.webp" alt="">
+                    <div class="layer-content">
+                        <div class="layer-info">
+                            <span class="category"><b>category</b></span>
+                        <h3 class="layer-content-title">Lorem, ipsum dolor.</h3>
+                        <a href="#"><i class="fa fa-edit"></i></a>
+                        <a href="#"><i class="fa fa-search"></i></a>
+                        </div>
+                    </div> <!-- layer content -->
+                </div><!-- ./portfolio-item -->
+                <div class="portfolio-item">
+                    <img src="images/work/work6.webp" alt="">
+                    <div class="layer-content">
+                        <div class="layer-info">
+                            <span class="category"><b>category</b></span>
+                        <h3 class="layer-content-title">Lorem, ipsum dolor.</h3>
+                        <a href="#"><i class="fa fa-edit"></i></a>
+                        <a href="#"><i class="fa fa-search"></i></a>
+                        </div>
+                    </div> <!-- layer content -->
+                </div><!-- ./portfolio-item -->
+                    </div><!-- ./portfolio-item -->
+                    <div class="clear"></div>
+            </div> <!-- ./portfolio-content -->
+        </div> <!-- ./container -->
+        
+    <!-- Offer Section -->
+    <div class="offer pd-y">
+        <div class="section-header">
+            <h2 class="section-title">what we offer</h2>
+            <span class="line"></span>
+        </div> <!-- ./section-header -->
+        <div class="container">
+            <div class="offer-content">
+                <div class="offer-item ltr-effect">
+                    <i class="icon fa fa-diamond fa-2x"></i>
+                    <h2 class="offer-item-title">app development</h2>
+                    <p class="offer-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </p>
+                </div> <!-- ./offer-item -->
+
+                <div class="offer-item mg ltr-effect">
+                    <i class="icon fa fa-rocket fa-2x"></i>
+                    <h2 class="offer-item-title">graphic design</h2>
+                    <p class="offer-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </p>
+                </div> <!-- ./offer-item -->
+
+                <div class="offer-item ltr-effect">
+                    <i class="icon fa fa-cogs fa-2x"></i>
+                    <h2 class="offer-item-title">creative idea</h2>
+                    <p class="offer-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </p>
+                </div> <!-- ./offer-item -->
+
+                <div class="offer-item ltr-effect">
+                    <i class="icon fa fa-diamond fa-2x"></i>
+                    <h2 class="offer-item-title">marketing</h2>
+                    <p class="offer-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </p>
+                </div> <!-- ./offer-item -->
+
+                <div class="offer-item mg ltr-effect">
+                    <i class="icon fa fa-pencil fa-2x"></i>
+                    <h2 class="offer-item-title">awesome support</h2>
+                    <p class="offer-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </p>
+                </div> <!-- ./offer-item -->
+
+                <div class="offer-item ltr-effect">
+                    <i class="icon fa fa-flask fa-lg"></i>
+                    <h2 class="offer-item-title">brand design</h2>
+                    <p class="offer-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </p>
+                </div> <!-- ./offer-item -->
+
+
+
+
+            </div> <!-- ./offer-content -->
+        </div> <!-- ./container -->
+    </div> <!-- ./offer -->
+
+    <!-- Service Section -->
+    <div class="service pd-y">
+        <div class="container">
+            <div class="service-item">
+                <div class="section-header">
+                    <h2 class="section-title">why choose us</h2>
+                    <span class="line"></span>
+                </div> <!-- ./section-header -->
+                <p class="service-item-desc">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                     Quae odit ducimus iusto molestias vitae 
+                     accusantium reprehenderit suscipit.
+                </p>
+                <ul class="service-list">
+                    <li> <i class="fa fa-check fa-fw"></i>Lorem ipsum dolor sit, amet consectetur adipisicing.</li>
+                    <li> <i class="fa fa-check fa-fw"></i>Lorem ipsum dolor sit, amet consectetur adipisicing.</li>
+                    <li> <i class="fa fa-check fa-fw"></i>Lorem ipsum dolor sit, amet consectetur adipisicing.</li>
+                    <li> <i class="fa fa-check fa-fw"></i>Lorem ipsum dolor sit, amet consectetur adipisicing.</li>
+                </ul> <!-- ./service-list -->
+            </div> <!-- ./service-item -->
+            <div class="service-item">
+                <div class="service-item-img"><img src="images/about/about1.webp" alt="">
+                </div> <!-- ./service-item-img -->
+                <ul class="service-bollets">
+                    <li class="active"></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div> <!-- ./service-item -->
+            <div class="clear"></div>
+        </div> <!-- ./container -->
+    </div> <!-- ./service -->
+
+    <!-- Number Section -->
+    <div class="numbers">
+        <div class="overlay">
+            <div class="container">
+                <div class="numbers-items">
+                    <div class="number-item ">
+                        <i class="icon fa fa-users fa-xl"></i>
+                        <h3 class="number-item-title">451</h3>
+                        <p class="number-item-text">Happy clients</p>
+                    </div>
+                    <div class="number-item ">
+                        <i class=" icon fa fa-trophy fa-xl"></i>
+                        <h3 class="number-item-title">451</h3>
+                        <p class="number-item-text">Happy clients</p>
+                    </div>
+                    <div class="number-item ">
+                        <i class=" icon fa fa-coffee fa-xl"></i>
+                        <h3 class="number-item-title">451</h3>
+                        <p class="number-item-text">Happy clients</p>
+                    </div>
+                    <div class="number-item ">
+                        <i class=" icon fa fa-file fa-xl"></i>
+                        <h3 class="number-item-title">451</h3>
+                        <p class="number-item-text">Happy clients</p>
+                    </div>
+                </div> <!-- ./numbers-items -->
+            </div> <!-- ./container -->
+        </div> <!-- ./overlay -->
+    </div> <!-- ./numbers -->
+
+    <!-- pricing Section -->
+    <div class="pricing pd-y">
+        <div class="section-header">
+            <h2 class="section-title">Pricing Table</h2>
+            <span class="line"></span>
+        </div>
+        <div class="container">
+            <div class="pricing-plans">
+                <div class="pricing-item tb-effect">
+                    <span class="pricing-item-text">Basic Plan</span>
+                    <div class="pricing-item-permonth">
+                        <h3 class="dollar">$9</h3>
+                        <span class="month">/ month</span>
+                    </div>
+                    <ul class="pricing-list">
+                        <li>1GB Disk Space</li>
+                        <li>100 Email Account</li>
+                        <li>24/24 Support</li>
+                    </ul>
+                    <button class="pricing-item-button">Purchase Now</button>
+                </div>
+
+                <div class="pricing-item mg tb-effect">
+                    <span class="pricing-item-text">Basic Plan</span>
+                    <div class="pricing-item-permonth">
+                        <h3 class="dollar">$9</h3>
+                        <span class="month">/ month</span>
+                    </div>
+                    <ul class="pricing-list">
+                        <li>1GB Disk Space</li>
+                        <li>100 Email Account</li>
+                        <li>24/24 Support</li>
+                    </ul>
+                    <button class="pricing-item-button">Purchase Now</button>
+                </div>
+
+                <div class="pricing-item tb-effect">
+                    <span class="pricing-item-text">Basic Plan</span>
+                    <div class="pricing-item-permonth">
+                        <h3 class="dollar">$9</h3>
+                        <span class="month">/ month</span>
+                    </div>
+                    <ul class="pricing-list">
+                        <li>1GB Disk Space</li>
+                        <li>100 Email Account</li>
+                        <li>24/24 Support</li>
+                    </ul>
+                    <button class="pricing-item-button">Purchase Now</button>
+                </div>
+                
+            </div> <!-- ./pricing plans -->
+        </div> <!-- ./container -->
+    </div> <!-- ./pricing -->
+
+    <!-- Testimonail Section -->
+    <div class="testimonail">
+        <div class="overlay">
+            <div class="container">
+                <div class="testimonail-content">
+                    <div class="testimonail-item">
+                        <div class="testimonail-toplayer">
+                            <img src="images/Testimonial/perso1.webp" alt="">
+                            <h3>Jhon Doe</h3>
+                            <span>Web Designer</span>
+                        </div>
+                        <p class="testimonail-desc">Lorem ipsum dolor sit amet
+                             consectetur adipisicing elit.
+                             In quam libero accusantium! Natus cumque ex libero.</p>
+                    </div>
+                    <div class="testimonail-item">
+                        <div class="testimonail-toplayer">
+                            <img src="images/Testimonial/perso2.webp" alt="">
+                            <h3>David Silva</h3>
+                            <span>Web Designer</span>
+                        </div>
+                        <p class="testimonail-desc">Lorem ipsum dolor sit amet
+                             consectetur adipisicing elit.
+                             In quam libero accusantium! Natus cumque ex libero.</p>
+                    </div>
+                </div> <!-- ./testimonail-content -->
+            </div> <!-- ./container -->
+        </div> <!-- ./overlay -->
+    </div> <!-- testimonail -->
+
+    <!-- Team Section -->
+    <div class="team pd-y">
+        <div class="section-header">
+            <h2 class="section-title">our team</h2>
+            <span class="line"></span>
+        </div>
+        <div class="container">
+            <div class="team-content">
+                <div class="team-item tb-effect">
+                    <div class="team-img">
+                        <img src="images/team/team1.webp" alt="">
+                        <div class="team-overlay">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-info-title">Jhon Doe</h3>
+                        <span class="team-info-text">Web Designer</span>
+                    </div>
+                </div>
+
+                <div class="team-item tb-effect mg">
+                    <div class="team-img">
+                        <img src="images/team/team2.webp" alt="">
+                        <div class="team-overlay">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-info-title">Jhon Doe</h3>
+                        <span class="team-info-text">Web Designer</span>
+                    </div>
+                </div>
+
+                <div class="team-item tb-effect">
+                    <div class="team-img">
+                        <img src="images/team/team3.webp" alt="">
+                        <div class="team-overlay">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter "></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-info-title">Jhon Doe</h3>
+                        <span class="team-info-text">Web Designer</span>
+                    </div>
+                </div>
+            </div> <!-- ./team-content -->
+        </div> <!-- ./container -->
+    </div> <!-- ./team -->
+
+    <!-- Blog Section -->
+    <div class="blog pd-y">
+        <div class="section-header">
+            <h2 class="section-title">recent news</h2>
+            <span class="line"></span>
+
+        <div class="container">
+            <div class="blog-content">
+                <div class="blog-item">
+                    <div class="blog-item-img">
+                        <img src="images/blog/blog1.webp" alt="">
+                    </div>
+                    <div class="blog-info">
+                        <ul class="blog-list">
+                            <li>
+                                <i class="fa fa-user"></i>
+                                Jhon Doe
+                            </li>
+                            <li>
+                                <i class="fa fa-clock-o"></i>
+                                18 Cct
+                            </li>
+                            <li>
+                                <i class="fa fa-comments"></i>
+                                57
+                            </li>
+                        </ul>
+                        <h3 class="blog-title">Lorem ipsum dolor sit amet consectetur.</h3>
+                        <p class="blog-desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                             Ratione cumque perspiciatis consectetur hic magnam blanditiis.</p>
+                             <a href="#" class="blog-link">Read more</a>
+                    </div> <!-- ./blog-info -->
+                </div> <!-- ./blog-item -->
+
+                <div class="blog-item mg">
+                    <div class="blog-item-img">
+                        <img src="images/blog/blog2.webp" alt="">
+                    </div>
+                    <div class="blog-info">
+                        <ul class="blog-list">
+                            <li>
+                                <i class="fa fa-user"></i>
+                                Jhon Doe
+                            </li>
+                            <li>
+                                <i class="fa fa-clock-o"></i>
+                                18 Cct
+                            </li>
+                            <li>
+                                <i class="fa fa-comments"></i>
+                                57
+                            </li>
+                        </ul>
+                        <h3 class="blog-title">Lorem ipsum dolor sit amet consectetur.</h3>
+                        <p class="blog-desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                             Ratione cumque perspiciatis consectetur hic magnam blanditiis.</p>
+                             <a href="#" class="blog-link">Read more</a>
+                    </div> <!-- ./blog-info -->
+                </div> <!-- ./blog-item -->
+
+                <div class="blog-item">
+                    <div class="blog-item-img">
+                        <img src="images/blog/blog3.webp" alt="">
+                    </div>
+                    <div class="blog-info">
+                        <ul class="blog-list">
+                            <li>
+                                <i class="fa fa-user"></i>
+                                Jhon Doe
+                            </li>
+                            <li>
+                                <i class="fa fa-clock-o"></i>
+                                18 Cct
+                            </li>
+                            <li>
+                                <i class="fa fa-comments"></i>
+                                57
+                            </li>
+                        </ul>
+                        <h3 class="blog-title">Lorem ipsum dolor sit amet consectetur.</h3>
+                        <p class="blog-desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                             Ratione cumque perspiciatis consectetur hic magnam blanditiis.</p>
+                             <a href="#" class="blog-link">Read more</a>
+                    </div> <!-- ./blog-info -->
+                </div> <!-- ./blog-item -->
+
+            </div> <!-- ./blog-content -->
+        </div> <!-- ./container -->
+    </div> <!-- ./section-header -->
+    </div> <!-- ./blog -->
+
+    <!-- Contact Section -->
+    <div class="contact pd-y">
+        <div class="section-header">
+            <h2 class="section-title">get in touch</h2>
+            <span class="line"></span>
+
+            <div class="container">
+                <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fa fa-phone fa-2x"></i>
+                        <h2 class="contact-title">phone</h2>
+                        <p class="contact-desc">512-421-3940</p>
+                    </div>
+
+                    <div class="contact-item mg">
+                        <i class="fa fa-message fa-2x"></i>
+                        <h2 class="contact-title">Email</h2>
+                        <p class="contact-desc">512-421-3940</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fa fa-phone fa-2x"></i>
+                        <h2 class="contact-title">Address</h2>
+                        <p class="contact-desc">512-421-3940</p>
+                    </div>
+                </div> <!-- ./contact-info -->
+
+                </div> <!-- ./conatct-content -->
+               <div class="contact-inputs">
+                <div class="contact-inp">
+                    <input type="text" placeholder="Name" class="name">
+                    <input type="email" placeholder="Email" class="email">
+                    <input type="text" placeholder="Subject" class="Subject">
+                    <input type="text" placeholder="Message" class="message">
+                    <button class="contact-btn hover-opacity">Send message</button>
+                </div>
+               </div>
+            </div> <!-- ./container -->
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <img src="images/logo-alt.webp" alt="">
+        <ul class="footer-links">
+            <li>
+                <a href="#" class="hover-opacity"><i class="fa fa-facebook"></i></a>
+            </li>
+            <li>
+                <a href="#" class="hover-opacity"><i class="fa fa-google-plus"></i></a>
+            </li>
+            <li>
+                <a href="#" class="hover-opacity"><i class="fa fa-instagram"></i></a>
+            </li>
+            <li>
+                <a href="#" class="hover-opacity"><i class="fa fa-youtube"></i></a>
+            </li>
+            <li>
+                <a href="#" class="hover-opacity"><i class="fa fa-twitter"></i></a>
+            </li>
+            <li>
+                <a href="#" class="hover-opacity"><i class="fa fa-linkedin"></i></a>
+            </li>
+        </ul>
+        <p class="copyright">copyright &copy; 2019 . all right reserved by colorlib</p>
+    </div> <!-- ./footer -->
+
+
+    
+</body>
+</html>
